@@ -1,0 +1,15 @@
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\CalculateStock.Common.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\CalculateStock.Common.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\Data.Model.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\NPOI.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\NPOI.OOXML.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\Data.Model.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\bin\Debug\NPOI.xml
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\obj\Debug\CalculateStock.Common.csprojAssemblyReference.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\obj\Debug\CalculateStock.Common.csproj.CoreCompileInputs.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\obj\Debug\CalculateStock.Common.csproj.CopyComplete
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\obj\Debug\CalculateStock.Common.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\CalculateStock.Common\obj\Debug\CalculateStock.Common.pdb

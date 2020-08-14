@@ -1,0 +1,6 @@
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\bin\Debug\Data.Model.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\bin\Debug\Data.Model.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.csprojAssemblyReference.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.csproj.CoreCompileInputs.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.pdb

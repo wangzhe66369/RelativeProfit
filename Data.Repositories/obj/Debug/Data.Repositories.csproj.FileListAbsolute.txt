@@ -1,0 +1,17 @@
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\Data.Repositories.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\Data.Repositories.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\CalculateStock.Common.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\NPOI.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\Data.Model.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\NPOI.OOXML.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\CalculateStock.Common.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\NPOI.xml
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\bin\Debug\Data.Model.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\obj\Debug\Data.Repositories.csprojAssemblyReference.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\obj\Debug\Data.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\obj\Debug\Data.Repositories.csproj.CopyComplete
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\obj\Debug\Data.Repositories.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Repositories\obj\Debug\Data.Repositories.pdb

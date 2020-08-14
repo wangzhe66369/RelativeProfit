@@ -1,0 +1,9 @@
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\bin\Debug\Bussiness.Interface.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\bin\Debug\Bussiness.Interface.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\bin\Debug\Data.Model.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\bin\Debug\Data.Model.pdb
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\obj\Debug\Bussiness.Interface.csprojAssemblyReference.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\obj\Debug\Bussiness.Interface.csproj.CoreCompileInputs.cache
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\obj\Debug\Bussiness.Interface.csproj.CopyComplete
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\obj\Debug\Bussiness.Interface.dll
+C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Bussiness.Interface\obj\Debug\Bussiness.Interface.pdb

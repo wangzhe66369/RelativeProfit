@@ -1,0 +1,131 @@
+﻿
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+</head>
+
+<body style="height: 100%; margin: 0">
+    <div align="center">
+        <h4><label for="Profit">相对收益</label></h4>
+    </div>
+    <div align="center">
+        <label for="start">开始日期：</label><input id="startDate" type="date" value="2019-02-01" />
+        <label for="end">结束日期：</label><input id="endDate" type="date" value="2019-06-01" />
+        <button onclick="getData()">查询</button>
+    </div>
+    <br />
+    <div align="center">
+        <input id='g1o1' name="Stock" value="PingAnBank"  type="radio">
+        <label for='g1o1'>平安银行(000001)</label>
+        <input id='g1o2' name="Stock" value="KweichowMoutai" checked type="radio">
+        <label for='g1o2'>贵州茅台(600519)</label>
+        <input id='g1o3' name="Stock" value="ChinaCITIC" type="radio">
+        <label for='g1o3'>中信建投(601066)</label>
+        <input id='g1o4' name="Stock" value="HuaxingYuanchuang" type="radio">
+        <label for='g1o4'>华兴源创(688001)</label>
+        <input id='g1o5' name="Stock" value="TongdaVenture" type="radio">
+        <label for='g1o5'>同达创业(600647)</label>
+    </div>
+    <div id="container" style="height: 80%"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getData();
+            $('input[type=radio][name=Stock]').change(function () {
+                getData();
+            });
+        });
+
+        function getData() {
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+            var stockValue = $("input[name='Stock']:checked").val();
+            radioSlected(stockValue, startDate, endDate);
+        }
+
+        function radioSlected(stockValue, startDate, endDate) {
+            $.ajax({
+                type: "POST",
+                url: '/RelativeProfit/GetStockData',
+                data: {
+                    stockValue: stockValue,
+                    startDate: startDate,
+                    endDate: endDate,
+                },
+                datatype: "text",
+                success: function (data) {
+                    generateChart(data);
+                }
+            })
+        }
+
+        function generateChart(data) {
+            var jsonResult = jQuery.parseJSON(data);
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            option = null;
+            option = {
+                legend: {
+                    data: ['充值', '消费']
+                },
+                tooltip: {
+                    trigger: 'axis',//鼠标经过提示
+                    textStyle: {
+                        align: 'left'
+                    },
+                },
+                dataZoom: [{
+                    type: 'slider',
+                    show: true,
+                    start: 0,
+                    end: 50,
+                    handleSize: 8
+                },
+                {
+                    type: 'inside',
+                    start: 0,
+                    end: 50
+                }],
+                xAxis: {
+                    axisLabel: {
+                        max: 20,
+                        show: true,
+                        interval: 0,
+                        rotate: 40,
+                        textStyle: {
+                            color: '#333'
+                        },
+                        showMinLabel: true,//显示最小值
+                        showMaxLabel: true,//显示最大值
+                    },
+                    type: 'category',
+                    data: jsonResult.ShowDate
+                },
+                yAxis: {
+                    max: 2,
+                    type: 'value',
+                    minInterval: 0,
+                    interval: 0.2
+                },
+                series: [{
+                    data: jsonResult.RelativeReturns,
+                    type: 'line',
+                    name: '',
+                    smooth: 0.2,
+                }]
+            };
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+        }
+    </script>
+</body>
+</html>
