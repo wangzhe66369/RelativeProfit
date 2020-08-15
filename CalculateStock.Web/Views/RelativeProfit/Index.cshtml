@@ -73,9 +73,6 @@
             var myChart = echarts.init(dom);
             option = null;
             option = {
-                legend: {
-                    data: ['充值', '消费']
-                },
                 tooltip: {
                     trigger: 'axis',//鼠标经过提示
                     textStyle: {
@@ -118,7 +115,6 @@
                 series: [{
                     data: jsonResult.RelativeReturns,
                     type: 'line',
-                    name: '',
                     smooth: 0.2,
                 }]
             };
