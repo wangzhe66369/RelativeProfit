@@ -41,14 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessService\RelativeProfitService.cs" />
+    <Compile Include="IBussinessService\IRelativeProfitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelativeProfitService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bussiness.Interface\Bussiness.Interface.csproj">
-      <Project>{53D0434F-8A1E-4CF3-926A-AE902F5E8748}</Project>
-      <Name>Bussiness.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CalculateStock.Common\CalculateStock.Common.csproj">
       <Project>{1E384B8E-0D87-44F8-8BDB-38F6D45B2E37}</Project>
       <Name>CalculateStock.Common</Name>

@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\StockVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -191,13 +191,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bussiness.Interface\Bussiness.Interface.csproj">
-      <Project>{53D0434F-8A1E-4CF3-926A-AE902F5E8748}</Project>
-      <Name>Bussiness.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bussiness.Service\Bussiness.Service.csproj">
       <Project>{E2493EF4-212F-4B0A-A239-1A873EBC92FC}</Project>
       <Name>Bussiness.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Model\Data.Model.csproj">
+      <Project>{DB0A3922-391F-4C70-9C38-77FEDAC43E97}</Project>
+      <Name>Data.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.Repositories\Data.Repositories.csproj">
       <Project>{54635200-FA94-4CC2-85FE-93AF3F0F3FE0}</Project>

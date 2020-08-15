@@ -1,4 +1,6 @@
-﻿using Bussiness.Interface;
+﻿using Bussiness.Service;
+using CalculateStock.Web.Models;
+using Data.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,21 @@ namespace CalculateStock.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var stoctVlue= _IRelativeProfitService.GetStockNameList();
+            List<StockName> RadioItemList = new List<StockName>();
+
+            foreach (var item in stoctVlue)
+            {
+                StockName stockName = new StockName();
+                stockName.StockCode = item.StockCode;
+                stockName.Name = item.Name;
+                RadioItemList.Add(stockName);
+            }
+
+            StockVM stoctVM = new StockVM();
+            stoctVM.RadioItemList = RadioItemList;
+           
+            return View(stoctVM);
         }
 
         public ActionResult GetStockData(string stockValue, string startDate, string endDate)

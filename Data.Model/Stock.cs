@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Model
 {
-    /// <summary>
-    /// 抽象成股票
-    /// </summary>
     public class Stock
     {
-        public decimal MarketClosePriceToday { get; set; }
-        public DateTime ShowDate { get; set; }
-        public decimal PriceLimit { get; set; }
-        public decimal RelativeReturns { get; set; }
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 股票代码
+        /// </summary>
+        public string StockCode { get; set; }
+
+        public Stock Parent { get; set; }
+
+        /// <summary>
+        /// 价格
+        /// </summary>
+        public List<SpecificStock> SpecificStocks { get; set; }
+
+
     }
 }

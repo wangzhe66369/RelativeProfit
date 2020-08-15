@@ -13,13 +13,13 @@ namespace CalculateStock.Common.CalculationRelativeReturns
 {
     public class CalculationRelativeCore
     {
-        DataTable dt = null;
-        List<Stock> StockCompositeIndexList = new List<Stock>();
-
-        public CalculationRelativeCore(DataTable dateTable)
+        List<Stock> stockList = new List<Stock>();
+        List<SpecificStock> StockCompositeIndexList = new List<SpecificStock>();
+       
+        public CalculationRelativeCore(List<Stock> _stockList)
         {
-            dt = dateTable;
-            StockCompositeIndexList= CalculateRoseAndFell("上证指数");
+            stockList = _stockList;
+            StockCompositeIndexList = CalculateRoseAndFell(string.Empty);
         }
         
         /// <summary>
@@ -27,38 +27,43 @@ namespace CalculateStock.Common.CalculationRelativeReturns
         /// </summary>
         /// <param name="name">股票名称</param>
         /// <returns>已经计算出单日涨跌幅股票list</returns>
-        public List<Stock> CalculateRoseAndFell(string name)
+        public List<SpecificStock> CalculateRoseAndFell(string stockCode)
         {
-            List<Stock> _stockList = new List<Stock>();
-            Decimal yesterdayValue = 0;
-            bool isPreviousHaveValue = false;
-            for (int i= 0; i < dt.Rows.Count; i++)
+            Stock stock = null;
+            if (string.IsNullOrEmpty(stockCode))
             {
-                Stock stock = new Stock();
-                stock.ShowDate = Convert.ToDateTime(dt.Rows[i]["日期"].ToString());
+                stock = stockList.FirstOrDefault();
+            }
+            else
+            {
+                stock = stockList.Where(d=>d.StockCode== stockCode).FirstOrDefault();
+            }
 
-                if (dt.Rows[i][name] != null&& dt.Rows[i][name]!=DBNull.Value)
+            List<SpecificStock> specificStockList = stock.SpecificStocks;
+            bool isPreviousHaveValue = false;
+            double? yesterdayValue = 0;
+            foreach (var specificStock in specificStockList)
+            {
+                if (specificStock.Price != null)
                 {
                     if (!isPreviousHaveValue)
                     {
-                        yesterdayValue = stock.MarketClosePriceToday = Convert.ToDecimal(dt.Rows[i][name].ToString());
-                        stock.PriceLimit = 0;
+                        yesterdayValue = specificStock.Price;
+                        specificStock.OneDayPriceLimit = 0;
                         isPreviousHaveValue = true;
                     }
                     else
-                    { 
-                        stock.MarketClosePriceToday = Convert.ToDecimal(dt.Rows[i][name]);
-                        stock.PriceLimit = stock.MarketClosePriceToday / yesterdayValue - 1;
-                        yesterdayValue = stock.MarketClosePriceToday;
+                    {
+                        specificStock.OneDayPriceLimit = Convert.ToDecimal(specificStock.Price / yesterdayValue - 1);
+                        yesterdayValue = specificStock.Price;
                     }
-                }else
+                }
+                else
                 {
                     isPreviousHaveValue = false;
                 }
-               
-                _stockList.Add(stock);
             }
-            return _stockList;
+            return specificStockList;
         }
 
         /// <summary>
@@ -66,27 +71,26 @@ namespace CalculateStock.Common.CalculationRelativeReturns
         /// </summary>
         /// <param name="name">股票名称</param>
         /// <returns>已经计算出相对收益股票list</returns>
-        public List<Stock> GetCalculationRelative(string name)
+        public List<SpecificStock> GetCalculationRelative(string stockCode)
         {
-            List<Stock> stocks = new List<Stock>();
-            List < Stock > CalculationStockList = CalculateRoseAndFell(name);
-            Decimal yesterdayRelativeReturns = 0;
-            for (int i = 0; i < StockCompositeIndexList.Count; i++)
+            List <SpecificStock> CalculationStockList = CalculateRoseAndFell(stockCode);
+            Decimal yesterdayRelativeProfit = 0;
+            int i = 0;
+            foreach (var specificStock in CalculationStockList)
             {
-                Stock stock = new Stock();
-                stock.ShowDate = StockCompositeIndexList[i].ShowDate;
                 if (i == 0)
                 {
-                    yesterdayRelativeReturns=stock.RelativeReturns = 1;
-                }else
+                    yesterdayRelativeProfit = specificStock.RelativeProfit = 1;
+                }
+                else
                 {
                     //四舍五入
-                    stock.RelativeReturns = Math.Round(((CalculationStockList[i].PriceLimit - StockCompositeIndexList[i].PriceLimit) + 1) * yesterdayRelativeReturns, 2, MidpointRounding.AwayFromZero);
-                    yesterdayRelativeReturns = stock.RelativeReturns;
+                    specificStock.RelativeProfit = Math.Round(((CalculationStockList[i].OneDayPriceLimit - StockCompositeIndexList[i].OneDayPriceLimit) + 1) * yesterdayRelativeProfit, 2, MidpointRounding.AwayFromZero);
+                    yesterdayRelativeProfit = specificStock.RelativeProfit;
                 }
-                stocks.Add(stock);
+                i++;
             }
-            return stocks;
+            return CalculationStockList;
         }
     }
 }

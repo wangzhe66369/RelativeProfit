@@ -1,4 +1,5 @@
 ﻿using CalculateStock.Common;
+using Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,12 +14,12 @@ namespace Data.Repositories
 {
     public class RelativeProfitRepository: IRelativeProfitRepository
     {
-        public DataTable GetStockData()
+        public List<Stock> GetStockData()
         {
             //从Excel中得到数据。
             string dataSourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Excel", "StockData.xlsx");
-            DataTable dt = ExcelHelper.ExcelToDataTable(dataSourcePath, "数据", true);
-            return dt;
+            List<Stock> stocks=  ExcelHelper.ExcelToList(dataSourcePath);
+            return stocks;
         }
     }
 }

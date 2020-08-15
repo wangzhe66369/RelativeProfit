@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Bussiness.Interface;
 using Bussiness.Service;
 using Data.Repositories;
 using System;

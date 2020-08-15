@@ -4,3 +4,9 @@ C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Mode
 C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.csproj.CoreCompileInputs.cache
 C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.dll
 C:\Users\wangzhe\Desktop\stock\CalculateStock.Web\Data.Model\obj\Debug\Data.Model.pdb
+D:\MyWorkProject\RelativeProfit\Data.Model\bin\Debug\Data.Model.dll
+D:\MyWorkProject\RelativeProfit\Data.Model\bin\Debug\Data.Model.pdb
+D:\MyWorkProject\RelativeProfit\Data.Model\obj\Debug\Data.Model.csprojAssemblyReference.cache
+D:\MyWorkProject\RelativeProfit\Data.Model\obj\Debug\Data.Model.csproj.CoreCompileInputs.cache
+D:\MyWorkProject\RelativeProfit\Data.Model\obj\Debug\Data.Model.dll
+D:\MyWorkProject\RelativeProfit\Data.Model\obj\Debug\Data.Model.pdb

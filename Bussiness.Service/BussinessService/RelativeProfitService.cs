@@ -1,5 +1,4 @@
-﻿using Bussiness.Interface;
-using CalculateStock.Common.CalculationRelativeReturns;
+﻿using CalculateStock.Common.CalculationRelativeReturns;
 using Data.Model;
 using Data.Repositories;
 using System;
@@ -18,6 +17,18 @@ namespace Bussiness.Service
         {
             _IRelativeProfitRepository = iRelativeProfitRepository;
         }
+
+        /// <summary>
+        /// 获得具体的股票，用于页面显示
+        /// </summary>
+        /// <returns></returns>
+        public List<Stock> GetStockNameList()
+        {
+            var stocks = _IRelativeProfitRepository.GetStockData().Where(d=>d.Parent!=null).ToList();
+            return stocks;
+
+        }
+
         /// <summary>
         /// 获得股票信息
         /// </summary>
@@ -25,44 +36,22 @@ namespace Bussiness.Service
         /// <param name="startDate">开始日期</param>
         /// <param name="endDate">结束日期</param>
         /// <returns>股票信息list</returns>
-        public List<Stock> GetStockData(string stockValue, string startDate, string endDate)
+        public List<SpecificStock> GetStockData(string stockCode, string startDate, string endDate)
         {
-            DataTable dataTable =_IRelativeProfitRepository.GetStockData();
+            List<Stock> stocks = _IRelativeProfitRepository.GetStockData();
 
-            string tmpStock = string.Empty;
-            switch (stockValue)
+            CalculationRelativeCore calculationRelativeCore = new CalculationRelativeCore(stocks);
+            var specificStocks = calculationRelativeCore.GetCalculationRelative(stockCode).AsQueryable();
+
+            if (!string.IsNullOrEmpty(startDate))
             {
-                case "PingAnBank":
-                    tmpStock = "平安银行(000001)";
-                    break;
-                case "KweichowMoutai":
-                    tmpStock = "贵州茅台(600519)";
-                    break;
-                case "ChinaCITIC":
-                    tmpStock = "中信建投(601066)";
-                    break;
-                case "HuaxingYuanchuang":
-                    tmpStock = "华兴源创(688001)";
-                    break;
-                case "TongdaVenture":
-                    tmpStock = "同达创业(600647)";
-                    break;
-                default:
-                    break;
-            }
-
-            CalculationRelativeCore calculationRelativeCore = new CalculationRelativeCore(dataTable);
-            var stockList = calculationRelativeCore.GetCalculationRelative(tmpStock).AsQueryable();
-
-            if(!string.IsNullOrEmpty(startDate))
-            {
-                stockList=stockList.Where(d => d.ShowDate >= Convert.ToDateTime(startDate));
+                specificStocks = specificStocks.Where(d => d.Date >= Convert.ToDateTime(startDate));
             }
             if (!string.IsNullOrEmpty(endDate))
             {
-                stockList=stockList.Where(d => d.ShowDate <= Convert.ToDateTime(endDate));
+                specificStocks = specificStocks.Where(d => d.Date <= Convert.ToDateTime(endDate));
             }
-            return stockList.ToList();
+            return specificStocks.ToList();
         }
 
         /// <summary>
@@ -82,8 +71,8 @@ namespace Bussiness.Service
             int i = 0;
             foreach (var item in stocList)
             {
-                arrDate[i] = item.ShowDate.ToString("yyyy/MM/dd");
-                arrRelativeProfit[i] = item.RelativeReturns.ToString();
+                arrDate[i] = item.Date.ToString("yyyy/MM/dd");
+                arrRelativeProfit[i] = item.RelativeProfit.ToString();
                 i++;
             }
             valuePairs.Add("ShowDate", arrDate);

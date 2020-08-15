@@ -1,4 +1,4 @@
-﻿
+﻿@model CalculateStock.Web.Models.StockVM
 <!DOCTYPE html>
 <html style="height: 100%">
 <head>
@@ -23,16 +23,24 @@
     </div>
     <br />
     <div align="center">
-        <input id='g1o1' name="Stock" value="PingAnBank"  type="radio">
-        <label for='g1o1'>平安银行(000001)</label>
-        <input id='g1o2' name="Stock" value="KweichowMoutai" checked type="radio">
-        <label for='g1o2'>贵州茅台(600519)</label>
-        <input id='g1o3' name="Stock" value="ChinaCITIC" type="radio">
-        <label for='g1o3'>中信建投(601066)</label>
-        <input id='g1o4' name="Stock" value="HuaxingYuanchuang" type="radio">
-        <label for='g1o4'>华兴源创(688001)</label>
-        <input id='g1o5' name="Stock" value="TongdaVenture" type="radio">
-        <label for='g1o5'>同达创业(600647)</label>
+        @for (int i = 0; i < Model.RadioItemList.Count; i++)
+        {
+            if (i == 0)
+            {
+                <div align="center" class="radio-inline">
+                    <input id='g1o1' name="Stock" value=@Model.RadioItemList[i].StockCode type="radio" checked>
+                    <label for='g1o1'>@Model.RadioItemList[i].Name</label>
+                </div>
+            }
+            else
+            {
+                <div align="center" class="radio-inline">
+                    <input id='g1o1' name="Stock" value=@Model.RadioItemList[i].StockCode type="radio">
+                    <label for='g1o1'>@Model.RadioItemList[i].Name</label>
+                </div>
+            }
+
+        }
     </div>
     <div id="container" style="height: 80%"></div>
 
@@ -45,9 +53,9 @@
         });
 
         function getData() {
+            var stockValue = $("input[name='Stock']:checked").val();
             var startDate = $('#startDate').val();
             var endDate = $('#endDate').val();
-            var stockValue = $("input[name='Stock']:checked").val();
             radioSlected(stockValue, startDate, endDate);
         }
 

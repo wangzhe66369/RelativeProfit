@@ -41,14 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepository\IRelativeProfitRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelativeProfit\IRelativeProfitRepository.cs" />
-    <Compile Include="RelativeProfit\RelativeProfitRepository.cs" />
+    <Compile Include="Repository\RelativeProfitRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CalculateStock.Common\CalculateStock.Common.csproj">
       <Project>{1E384B8E-0D87-44F8-8BDB-38F6D45B2E37}</Project>
       <Name>CalculateStock.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Model\Data.Model.csproj">
+      <Project>{DB0A3922-391F-4C70-9C38-77FEDAC43E97}</Project>
+      <Name>Data.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

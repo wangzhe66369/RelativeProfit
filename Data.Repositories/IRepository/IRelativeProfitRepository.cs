@@ -1,4 +1,5 @@
 ﻿
+using Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,6 @@ namespace Data.Repositories
 {
     public interface IRelativeProfitRepository
     {
-        DataTable GetStockData();
+        List<Stock> GetStockData();
     }
 }
