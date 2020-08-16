@@ -69,11 +69,11 @@
                     endDate: endDate,
                 },
                 datatype: "text",
-                success: function (data) {
-                    var jsonResult = jQuery.parseJSON(data);
+                success: function (jsonResult) {
                     if (jsonResult.result) {
                         generateChart(jsonResult.Data);
                     } else {
+                        //$.dialog.alert(jsonResult.message);
                         alert(jsonResult.message);
                     }
                 },

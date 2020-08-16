@@ -41,7 +41,7 @@ namespace CalculateStock.Common.CalculationRelativeProfit
 
             List<SpecificStock> specificStockList = stock.SpecificStocks;
             bool isPreviousHaveValue = false;
-            double? yesterdayValue = 0;
+            decimal? yesterdayValue = 0;
             foreach (var specificStock in specificStockList)
             {
                 if (specificStock.Price != null)
@@ -84,8 +84,7 @@ namespace CalculateStock.Common.CalculationRelativeProfit
                 }
                 else
                 {
-                    //四舍五入
-                    specificStock.RelativeProfit = Math.Round(((CalculationStockList[i].OneDayPriceLimit - StockCompositeIndexList[i].OneDayPriceLimit) + 1) * yesterdayRelativeProfit, 2, MidpointRounding.AwayFromZero);
+                    specificStock.RelativeProfit = ((CalculationStockList[i].OneDayPriceLimit - StockCompositeIndexList[i].OneDayPriceLimit) + 1) * yesterdayRelativeProfit;
                     yesterdayRelativeProfit = specificStock.RelativeProfit;
                 }
                 i++;

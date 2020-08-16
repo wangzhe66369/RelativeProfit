@@ -72,7 +72,8 @@ namespace Bussiness.Service
             foreach (var item in stocList)
             {
                 arrDate[i] = item.Date.ToString("yyyy/MM/dd");
-                arrRelativeProfit[i] = item.RelativeProfit.ToString();
+                //页面显示的数据,四舍五入
+                arrRelativeProfit[i] = Math.Round(item.RelativeProfit, 2, MidpointRounding.AwayFromZero).ToString();
                 i++;
             }
             valuePairs.Add("ShowDate", arrDate);

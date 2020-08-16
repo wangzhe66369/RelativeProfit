@@ -46,11 +46,15 @@ namespace CalculateStock.Common.Excel
                         IRow cellPrices = sheet.GetRow(i);
                         for (int j = 1; j <= stocks.Count; j++)
                         {
-                            SpecificStock specificStock = new SpecificStock()
+                            SpecificStock specificStock = new SpecificStock();
+                            specificStock.Date = cellPrices.GetCell(0).DateCellValue;
+                            if(cellPrices.GetCell(j)!=null)
                             {
-                                Date = cellPrices.GetCell(0).DateCellValue,
-                                Price = cellPrices.GetCell(j)?.NumericCellValue
-                            };
+                                specificStock.Price = Convert.ToDecimal(cellPrices.GetCell(j).ToString());
+                            }else
+                            {
+                                specificStock.Price = null;
+                            }
                             stocks[j - 1].SpecificStocks.Add(specificStock);
                         }
                     }

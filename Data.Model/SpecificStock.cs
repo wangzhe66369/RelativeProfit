@@ -6,7 +6,7 @@ namespace Data.Model
     {
         public DateTime Date { get; set; }
 
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
         /// <summary>
         /// 单日涨幅
         /// </summary>

@@ -34,13 +34,12 @@ namespace CalculateStock.Controllers
 
             StockVM stoctVM = new StockVM();
             stoctVM.RadioItemList = RadioItemList;
-           
+          
             return View(stoctVM);
         }
 
         public ActionResult GetStockData(string stockValue, string startDate, string endDate)
         {
-
             var valuePairs = _IRelativeProfitService.GetDateAndRelativeProfit(stockValue, startDate, endDate);
 
             ResultEntity resultEntity = new ResultEntity()
@@ -48,10 +47,8 @@ namespace CalculateStock.Controllers
                 result = true,
                 Data = valuePairs
             };
-            string jsonData = JsonConvert.SerializeObject(resultEntity);
 
-            return Json(jsonData, JsonRequestBehavior.AllowGet);
+            return Json(resultEntity, JsonRequestBehavior.AllowGet);
         }
-       
     }
 }
