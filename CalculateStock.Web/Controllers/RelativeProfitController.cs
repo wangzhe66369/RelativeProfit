@@ -40,8 +40,15 @@ namespace CalculateStock.Controllers
 
         public ActionResult GetStockData(string stockValue, string startDate, string endDate)
         {
+
             var valuePairs = _IRelativeProfitService.GetDateAndRelativeProfit(stockValue, startDate, endDate);
-            string jsonData = JsonConvert.SerializeObject(valuePairs);
+
+            ResultEntity resultEntity = new ResultEntity()
+            {
+                result = true,
+                Data = valuePairs
+            };
+            string jsonData = JsonConvert.SerializeObject(resultEntity);
 
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }

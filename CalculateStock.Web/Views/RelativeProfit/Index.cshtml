@@ -70,13 +70,20 @@
                 },
                 datatype: "text",
                 success: function (data) {
-                    generateChart(data);
+                    var jsonResult = jQuery.parseJSON(data);
+                    if (jsonResult.result) {
+                        generateChart(jsonResult.Data);
+                    } else {
+                        alert(jsonResult.message);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
                 }
             })
         }
 
         function generateChart(data) {
-            var jsonResult = jQuery.parseJSON(data);
             var dom = document.getElementById("container");
             var myChart = echarts.init(dom);
             option = null;
@@ -112,7 +119,7 @@
                         showMaxLabel: true,//显示最大值
                     },
                     type: 'category',
-                    data: jsonResult.ShowDate
+                    data: data.ShowDate
                 },
                 yAxis: {
                     max: 2,
@@ -121,7 +128,7 @@
                     interval: 0.2
                 },
                 series: [{
-                    data: jsonResult.RelativeReturns,
+                    data: data.RelativeProfit,
                     type: 'line',
                     smooth: 0.2,
                 }]

@@ -76,7 +76,7 @@ namespace Bussiness.Service
                 i++;
             }
             valuePairs.Add("ShowDate", arrDate);
-            valuePairs.Add("RelativeReturns", arrRelativeProfit);
+            valuePairs.Add("RelativeProfit", arrRelativeProfit);
             return valuePairs;
         }
     }
