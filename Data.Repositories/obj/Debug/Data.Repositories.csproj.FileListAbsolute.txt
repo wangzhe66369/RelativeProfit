@@ -32,3 +32,5 @@ D:\MyWorkProject\RelativeProfit\Data.Repositories\obj\Debug\Data.Repositories.cs
 D:\MyWorkProject\RelativeProfit\Data.Repositories\obj\Debug\Data.Repositories.csproj.CopyComplete
 D:\MyWorkProject\RelativeProfit\Data.Repositories\obj\Debug\Data.Repositories.dll
 D:\MyWorkProject\RelativeProfit\Data.Repositories\obj\Debug\Data.Repositories.pdb
+D:\MyWorkProject\RelativeProfit\Data.Repositories\bin\Debug\log4net.dll
+D:\MyWorkProject\RelativeProfit\Data.Repositories\bin\Debug\log4net.xml

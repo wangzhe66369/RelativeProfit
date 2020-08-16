@@ -1,4 +1,4 @@
-﻿using CalculateStock.Common.CalculationRelativeReturns;
+﻿using CalculateStock.Common.CalculationRelativeProfit;
 using Data.Model;
 using Data.Repositories;
 using System;

@@ -38,3 +38,5 @@ D:\MyWorkProject\RelativeProfit\Bussiness.Service\bin\Debug\Data.Model.pdb
 D:\MyWorkProject\RelativeProfit\Bussiness.Service\bin\Debug\Data.Repositories.pdb
 D:\MyWorkProject\RelativeProfit\Bussiness.Service\bin\Debug\NPOI.xml
 D:\MyWorkProject\RelativeProfit\Bussiness.Service\obj\Debug\Bussiness.Service.csproj.CopyComplete
+D:\MyWorkProject\RelativeProfit\Bussiness.Service\bin\Debug\log4net.dll
+D:\MyWorkProject\RelativeProfit\Bussiness.Service\bin\Debug\log4net.xml

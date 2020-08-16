@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace CalculateStock.Common.CalculationRelativeReturns
+namespace CalculateStock.Common.CalculationRelativeProfit
 {
     public class CalculationRelativeCore
     {

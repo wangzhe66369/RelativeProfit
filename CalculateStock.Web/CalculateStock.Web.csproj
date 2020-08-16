@@ -51,6 +51,9 @@
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,11 +130,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\ErrorHandleAttribute.cs" />
+    <Compile Include="Common\ErrorMessage.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RelativeProfitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResultEntity.cs" />
     <Compile Include="Models\StockVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,6 +151,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\500.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Excel\StockData.xlsx" />
@@ -173,9 +181,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RelativeProfit\Index.cshtml" />
+    <Content Include="Views\Shared\ISE.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -194,6 +204,10 @@
     <ProjectReference Include="..\Bussiness.Service\Bussiness.Service.csproj">
       <Project>{E2493EF4-212F-4B0A-A239-1A873EBC92FC}</Project>
       <Name>Bussiness.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalculateStock.Common\CalculateStock.Common.csproj">
+      <Project>{1e384b8e-0d87-44f8-8bdb-38f6d45b2e37}</Project>
+      <Name>CalculateStock.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data.Model\Data.Model.csproj">
       <Project>{DB0A3922-391F-4C70-9C38-77FEDAC43E97}</Project>

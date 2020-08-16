@@ -28,3 +28,5 @@ D:\MyWorkProject\RelativeProfit\CalculateStock.Common\obj\Debug\CalculateStock.C
 D:\MyWorkProject\RelativeProfit\CalculateStock.Common\obj\Debug\CalculateStock.Common.csproj.CopyComplete
 D:\MyWorkProject\RelativeProfit\CalculateStock.Common\obj\Debug\CalculateStock.Common.dll
 D:\MyWorkProject\RelativeProfit\CalculateStock.Common\obj\Debug\CalculateStock.Common.pdb
+D:\MyWorkProject\RelativeProfit\CalculateStock.Common\bin\Debug\log4net.dll
+D:\MyWorkProject\RelativeProfit\CalculateStock.Common\bin\Debug\log4net.xml

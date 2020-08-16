@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using CalculateStock.Web.Common;
+using System.Web;
 using System.Web.Mvc;
 
 namespace CalculateStock.Web
@@ -7,7 +8,7 @@ namespace CalculateStock.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new ErrorHandleAttribute());
         }
     }
 }

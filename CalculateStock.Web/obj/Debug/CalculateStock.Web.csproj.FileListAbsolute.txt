@@ -162,3 +162,5 @@ D:\MyWorkProject\RelativeProfit\CalculateStock.Web\obj\Debug\CalculateStock.Web.
 D:\MyWorkProject\RelativeProfit\CalculateStock.Web\obj\Debug\CalculateStock.Web.csproj.CopyComplete
 D:\MyWorkProject\RelativeProfit\CalculateStock.Web\obj\Debug\CalculateStock.Web.dll
 D:\MyWorkProject\RelativeProfit\CalculateStock.Web\obj\Debug\CalculateStock.Web.pdb
+D:\MyWorkProject\RelativeProfit\CalculateStock.Web\bin\log4net.dll
+D:\MyWorkProject\RelativeProfit\CalculateStock.Web\bin\log4net.xml

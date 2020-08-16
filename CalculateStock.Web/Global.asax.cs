@@ -12,6 +12,8 @@ namespace CalculateStock.Web
     {
         protected void Application_Start()
         {
+            //log4日志组件注册
+            log4net.Config.XmlConfigurator.Configure();
             AutofacConfig.Register();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
